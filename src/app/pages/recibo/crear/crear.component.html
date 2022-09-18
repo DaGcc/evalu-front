@@ -1,0 +1,58 @@
+
+<mat-form-field appearance="fill">
+    <mat-label>CLIENTES</mat-label>
+    <mat-select [(value)]="clienteSeleccionado">
+        <mat-option *ngFor="let cli of clientes" [value]="cli">
+            {{cli.nombres}} {{cli.apellidos}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>TRABAJADORES</mat-label>
+    <mat-select [(value)]="trabajadorSeleccionado">
+        <mat-option *ngFor="let cli of trabajadores" [value]="cli">
+            {{cli.nombres}} {{cli.apellidos}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+
+<mat-form-field appearance="fill">
+    <mat-label>PRODUCTOS</mat-label>
+    <mat-select [(value)]="productoSeleccionado">
+        <mat-option *ngFor="let cli of productos" [value]="cli">
+            {{cli.nombre}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput placeholder="Cantidad" [(ngModel)]="cantidad">
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput placeholder="Descripcion" [(ngModel)]="descripcion">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="agregar()">AGREGAR PRODUCTO</button>
+
+
+<mat-accordion *ngFor="let de of listaDetalle; let i = index">
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{de.producto.nombre}}
+            </mat-panel-title>
+            <mat-panel-description>
+                VER DETALLE
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{de.cantidad}} {{de.descripcion}}</p>
+        <button mat-raised-button color="warn" (click)="quitar(i)">QUITAR</button>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<button mat-raised-button color="primary" (click)="operar()">REALIZADO</button>

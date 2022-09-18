@@ -1,0 +1,13 @@
+
+
+<mat-toolbar >
+    <span>ID RECIBO: {{id}} - FECHA:{{fecha | date:'M/d/yy, h:mm a'}}</span>
+</mat-toolbar>
+
+<mat-card *ngFor="let de of listaDetalles">
+    <mat-card-title>{{de.producto.nombre}}</mat-card-title>
+    <mat-card-subtitle>
+        {{de.cantidad}} {{de.descripcion}}
+    </mat-card-subtitle>
+   
+</mat-card>
